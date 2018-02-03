@@ -12,3 +12,4 @@ pytest = "*"
 
 [packages]
 
+"e1839a8" = {path = ".", editable = true}
