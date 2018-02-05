@@ -9,6 +9,7 @@ name = "pypi"
 
 pytest = "*"
 "flake8" = "*"
+tox = "*"
 
 
 [packages]
