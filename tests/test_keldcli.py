@@ -2,4 +2,4 @@ import keldcli
 
 
 def test_keldcli():
-    assert True
+    assert keldcli.cli() is None
