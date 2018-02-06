@@ -1,15 +1,15 @@
 # -*- coding: utf-8 -*-
 
-import pytest
+from click.testing import CliRunner
 
-import keldcli
+from keldcli import cli
 
 
-def test_keldcli():
-    with pytest.raises(SystemExit) as excinfo:
-        keldcli.cli()
-    system_exit = excinfo.value
-    assert system_exit.code == 0
+def test_cli():
+    """Test the CLI."""
+    runner = CliRunner()
+    result = runner.invoke(cli)
+    assert result.exit_code == 0
 
 
 def test_keldcli_as_module():

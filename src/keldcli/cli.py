@@ -2,7 +2,9 @@
 
 """Command line interface for the `kelcli` package."""
 
+import click
 
+
+@click.group(invoke_without_command=True)
 def cli():
-    import sys
-    sys.exit(0)
+    click.echo('Keld Command Line Interface!')
