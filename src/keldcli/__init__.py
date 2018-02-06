@@ -2,4 +2,5 @@
 
 
 def cli():
-    pass
+    import sys
+    sys.exit(0)
