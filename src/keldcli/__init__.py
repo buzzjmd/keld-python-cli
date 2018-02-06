@@ -1,6 +1,5 @@
 # -*- coding: utf-8 -*-
 
+from .cli import cli
 
-def cli():
-    import sys
-    sys.exit(0)
+__all__ = ['cli']
