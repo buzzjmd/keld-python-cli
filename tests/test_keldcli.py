@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 
-from click.testing import CliRunner
-
 from keldcli import cli
 
 
-def test_cli():
+def test_cli(runner):
     """Test the CLI."""
-    runner = CliRunner()
     result = runner.invoke(cli)
     assert result.exit_code == 0
     assert 'Keld Command Line Interface!\n' in result.output
@@ -25,9 +22,8 @@ def test_keldcli_as_script():
     assert(returncode == 0)
 
 
-def test_help_option():
+def test_help_option(runner):
     """Test the --help option."""
-    runner = CliRunner()
     help_result = runner.invoke(cli, ['--help'])
     assert help_result.exit_code == 0
     assert '--help  Show this message and exit.' in help_result.output
