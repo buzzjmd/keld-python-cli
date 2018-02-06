@@ -10,6 +10,7 @@ name = "pypi"
 pytest = "*"
 "flake8" = "*"
 tox = "*"
+pytest-cov = "*"
 
 
 [packages]
