@@ -8,4 +8,4 @@ import click
 @click.group(invoke_without_command=True)
 def cli():
     """Entry point for the console script."""
-    click.echo('Keld Command Line Interface!')
+    click.echo('Command Line Interface!')
