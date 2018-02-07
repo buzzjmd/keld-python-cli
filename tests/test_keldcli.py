@@ -11,7 +11,7 @@ def test_keldcli_as_module():
 
 
 def test_keldcli_as_script():
-    """Test the package script has been installed."""
+    """Test the package console script has been installed."""
     import subprocess
     returncode = subprocess.call(['keld'])
     assert(returncode == 0)
