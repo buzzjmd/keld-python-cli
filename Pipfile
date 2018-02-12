@@ -8,17 +8,10 @@ name = "pypi"
 [dev-packages]
 
 pytest = "*"
-"flake8" = "*"
-tox = "*"
 pytest-cov = "*"
+tox = "*"
 
 
 [packages]
 
 "e1839a8" = {path = ".", editable = true}
-click = "*"
-
-
-[requires]
-
-python_version = "3.6"
