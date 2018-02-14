@@ -10,14 +10,12 @@ matrix:
       env:
         - TOXENV=py36
 before_install:
-  - python --version
   - uname -a
 # command to install dependencies
 install:
-  - pip install tox
   - virtualenv --version
   - easy_install --version
-  - pip --version
+  - pip install tox
   - tox --version
 # command to run tests
 script:
