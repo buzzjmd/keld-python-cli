@@ -1,0 +1,31 @@
+language: python
+sudo: false
+cache: pip
+matrix:
+  include:
+    - python: '2.7'
+      env:
+        - TOXENV=py27
+    - python: '3.6'
+      env:
+        - TOXENV=py36
+before_install:
+  - python --version
+  - uname -a
+# command to install dependencies
+install:
+  - pip install tox
+  - virtualenv --version
+  - easy_install --version
+  - pip --version
+  - tox --version
+# command to run tests
+script:
+  - tox -v
+after_failure:
+  - more .tox/log/* | cat
+  - more .tox/*/log/* | cat
+notifications:
+  email:
+    on_success: never
+    on_failure: always
