@@ -23,7 +23,7 @@ clean-pyc: ## Remove Python file artifacts
 clean: clean-tox clean-build clean-pyc ## Remove all file artifacts
 
 .PHONY: clobber-caches
-clobber-caches: ## Remove Python file artifacts
+clobber-caches: ## Remove cache for downloaded plugins
 	@echo "+ $@"
 	@rm -fr .eggs/
 
