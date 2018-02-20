@@ -19,8 +19,19 @@ clean-pyc: ## Remove Python file artifacts
 	@find . -type f -name '*.py[co]' -exec rm -f {} +
 	@find . -name '*~' -exec rm -f {} +
 
+.PHONY: clean-pytest
+clean-pytest: ## Remove pytest artifacts
+	@echo "+ $@"
+	@find . -type d -name '.pytest_cache' -exec rm -rf {} +
+
+.PHONY: clean-coverage
+clean-coverage: ## Remove coverage artifacts
+	@echo "+ $@"
+	@find . -type d -name 'htmlcov' -exec rm -rf {} +
+	@coverage erase
+
 .PHONY: clean
-clean: clean-tox clean-build clean-pyc ## Remove all file artifacts
+clean: clean-tox clean-build clean-pyc clean-pytest clean-coverage ## Remove all file artifacts
 
 .PHONY: clobber-caches
 clobber-caches: ## Remove cache for downloaded plugins

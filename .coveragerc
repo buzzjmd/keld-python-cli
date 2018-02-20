@@ -1,0 +1,7 @@
+[run]
+source =
+    keldcli
+    tests
+
+[report]
+show_missing = true
