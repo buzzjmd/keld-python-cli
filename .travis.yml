@@ -23,6 +23,9 @@ script:
 after_failure:
   - more .tox/log/* | cat
   - more .tox/*/log/* | cat
+  - tox -e codecov
+after_success:
+  - tox -e codecov
 notifications:
   email:
     on_success: never
