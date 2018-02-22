@@ -1,4 +1,10 @@
+[paths]
+source =
+   src/keldcli
+   */site-packages/keldcli
+
 [run]
+branch = True
 source =
     keldcli
     tests
