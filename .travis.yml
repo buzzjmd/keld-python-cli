@@ -17,6 +17,8 @@ install:
   - easy_install --version
   - pip install tox
   - tox --version
+  - pip install codecov
+  - codecov --version
 # command to run tests
 script:
   - tox -v
