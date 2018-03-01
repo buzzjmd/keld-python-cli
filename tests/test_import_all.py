@@ -3,7 +3,6 @@
 # flake8: noqa
 
 import keldcli
-
 from keldcli import *
 
 

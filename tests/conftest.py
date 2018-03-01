@@ -2,11 +2,9 @@
 
 """Test fixtures."""
 
-from click.testing import CliRunner
-
-import pytest
-
 import keldcli
+import pytest
+from click.testing import CliRunner
 
 
 @pytest.fixture(scope='function')
