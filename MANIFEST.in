@@ -1,0 +1,26 @@
+exclude .*
+
+include LICENSE*
+include README*
+
+include makefile
+include *.yml
+include *.ini
+
+include .coveragerc
+
+graft src
+recursive-exclude src .* 
+
+graft docs
+prune docs/**/build
+prune docs/**/_build
+recursive-exclude docs .* 
+
+graft tests
+recursive-exclude tests .* 
+
+prune test
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib
+
