@@ -10,11 +10,41 @@ matrix:
     - python: '3.6'
       env: TOXENV=py
 
+    - os: osx
+      language: generic
+      env: TOXENV=py PYBREW=python2
+
+    - os: osx
+      language: generic
+      env: TOXENV=py PYBREW=python3
+
 before_install:
   - uname -a
+    # Perform the manual steps on osx to install python3 and activate venv
+    # Homebrew changed in Mach 2018, 'brew install python3' no longer works.
+    # Upgrade to python3, then also install the python@2 formula as instructed
+    # on the Homebrew website.
   - which python || true
   - which python2 || true
   - which python3 || true
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then
+      brew update;
+      brew upgrade python;
+      if [[ "$PYBREW" == "python3" ]]; then
+        python3 -m pip install -q virtualenv;
+        python3 -m virtualenv --version;
+        python3 -m virtualenv -p python3 ~/py-env;
+        which python3;
+        source ~/py-env/bin/activate;
+      else
+        brew install python@2;
+        which python2;
+        python2 -m pip install -q virtualenv;
+        python2 -m virtualenv --version;
+        python2 -m virtualenv -p python2 ~/py-env;
+        source ~/py-env/bin/activate;
+      fi
+    fi
   - which python;
     python --version
   - easy_install --version
