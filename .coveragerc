@@ -1,13 +1,14 @@
 [paths]
 source =
-   src/keldcli
-   */site-packages/keldcli
+    src/keldcli
+    */site-packages/keldcli
 
 [run]
-branch = True
+branch = true
 source =
     keldcli
     tests
+parallel = true
 
 [report]
 show_missing = true
