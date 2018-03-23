@@ -1,39 +1,37 @@
-language: python
+os: linux
 sudo: false
+language: python
 
 matrix:
   include:
     - python: '2.7'
-      env:
-        - TOXENV=py27
+      env: TOXENV=py
+
     - python: '3.6'
-      env:
-        - TOXENV=py36
+      env: TOXENV=py
 
 before_install:
   - uname -a
-
-# command to install dependencies
-install:
-  - virtualenv --version
+  - which python || true
+  - which python2 || true
+  - which python3 || true
+  - which python;
+    python --version
   - easy_install --version
-  
+  - pip --version
+
+install:
   - pip install tox
-  - tox --version
 
-  - pip install codecov
-  - codecov --version
-
-# command to run tests
 script:
-  - tox -v
+  - python -m tox -v
 
 after_failure:
   - more .tox/log/* | cat
   - more .tox/*/log/* | cat
 
 after_success:
-  - echo === After Success.
+  - pip install codecov
   - codecov
 
 cache:
@@ -42,8 +40,11 @@ cache:
 branches:
   only:
     - master
+    - /^.*-feature$/
+    - /^.*-maintenance$/
 
 notifications:
   email:
-    on_success: never
+    # Select always or never
+    on_success: always
     on_failure: always
