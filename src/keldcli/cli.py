@@ -4,8 +4,10 @@
 
 import click
 
+from .__about__ import __title__, __version__
+
 
 @click.group(invoke_without_command=True)
 def cli():
     """Entry point for the console script."""
-    click.echo('Command Line Interface!')
+    click.echo('{} {}'.format(__title__, __version__))

@@ -7,7 +7,7 @@ def test_cli(runner, cli):
     """Test the CLI."""
     result = runner.invoke(cli)
     assert result.exit_code == 0
-    assert 'Command Line Interface!\n' in result.output
+    assert result.output.startswith('keldcli'), result.output
 
 
 def test_help_option(runner, cli):
