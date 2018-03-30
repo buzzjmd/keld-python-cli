@@ -13,7 +13,7 @@ requirements = [
 ]
 
 console_script_entry_points = [
-    'keld=keldcli:cli'
+    'keldcli=keldcli:cli'
 ]
 
 setup(
